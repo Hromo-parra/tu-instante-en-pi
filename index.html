@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#091522">
+  <meta name="description" content="Busca una fecha entre un millón de decimales de pi.">
+  <title>Tu instante en π</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <header class="topbar wrap">
+    <a class="brand" href="./"><span class="brand-mark">π</span><span data-i18n="brand">Tu instante en π</span></a>
+    <nav aria-label="Language / Idioma" class="language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero wrap">
+      <div>
+        <p class="eyebrow" data-i18n="eyebrow">UNA PEQUEÑA CURIOSIDAD MATEMÁTICA</p>
+        <h1 data-i18n="headline">Una fecha. <em>Un universo de cifras.</em></h1>
+        <p class="intro" data-i18n="intro">Explora si una fecha especial aparece entre el primer millón de decimales de π.</p>
+        <form id="search-form" class="panel" autocomplete="off">
+          <div class="field"><label for="date-one" data-i18n="dateOne">Tu fecha</label><input id="date-one" type="date" min="0001-01-01" max="9999-12-31" autocomplete="off" required></div>
+          <div class="field"><label for="format" data-i18n="format">Representación de búsqueda</label>
+            <select id="format"><option value="DDMMYYYY">DDMMYYYY</option><option value="MMDDYYYY">MMDDYYYY</option><option value="YYYYMMDD">YYYYMMDD</option><option value="DDMMYY">DDMMYY</option></select>
+          </div>
+          <label class="toggle"><input id="couple" type="checkbox"> <span data-i18n="couple">Comparar dos fechas</span></label>
+          <div class="field" id="second-field" hidden><label for="date-two" data-i18n="dateTwo">Segunda fecha</label><input id="date-two" type="date" min="0001-01-01" max="9999-12-31" autocomplete="off"></div>
+          <button class="primary" id="search" type="submit" data-i18n="search">Buscar en π <span aria-hidden="true">↗</span></button>
+          <button type="button" id="cancel" data-i18n="cancel" hidden>Cancelar búsqueda</button>
+          <p class="privacy" data-i18n="privacy">Tu fecha se busca en este dispositivo y la app no la guarda de forma persistente ni la envía al buscar. Compartir el resultado o descargar una tarjeta incluye tu fecha. El alojamiento puede registrar accesos.</p>
+          <a class="privacy-link" href="#privacy" data-i18n="privacyMore">Más sobre privacidad</a>
+        </form>
+      </div>
+      <div class="cosmos" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orb">π</div><div class="digits">3.14159265358979323846264338327950288419716939937510</div></div>
+    </section>
+    <section class="wrap results" aria-live="polite" aria-atomic="true" id="results"></section>
+    <section class="wrap knowledge">
+      <div><p class="eyebrow" data-i18n="learnLabel">LA MATEMÁTICA DETRÁS</p><h2 data-i18n="learnTitle">Infinito no significa que sepamos todo.</h2></div>
+      <div class="knowledge-copy"><p data-i18n="fact">π es irracional: sus decimales son infinitos y no periódicos. Esto, por sí solo, no demuestra que aparezca cada secuencia finita.</p><p data-i18n="normal">La normalidad de π —que implicaría que todas las secuencias finitas aparecen con las frecuencias esperadas— sigue sin demostrarse.</p><p data-i18n="probability">Como modelo idealizado de cifras independientes y uniformes, una secuencia de k dígitos tiene probabilidad aproximada 10⁻ᵏ en una posición. No es una garantía ni una prueba sobre π.</p></div>
+    </section>
+    <section class="wrap knowledge" id="privacy" aria-labelledby="privacy-title">
+      <div><p class="eyebrow" data-i18n="privacyLabel">TUS DATOS</p><h2 id="privacy-title" data-i18n="privacyTitle">Privacidad</h2></div>
+      <div class="knowledge-copy">
+        <p data-i18n="privacyLocal">La fecha y su secuencia se procesan localmente en tu navegador, incluido un worker, y permanecen en la página mientras la usas. La aplicación no las guarda en almacenamiento persistente ni necesita una cuenta.</p>
+        <p data-i18n="privacyStorage">La aplicación solo guarda la preferencia de idioma en localStorage cuando está disponible; no utiliza sessionStorage ni cookies propias. Solicita desactivar el autocompletado de fechas, pero el navegador o sus extensiones pueden conservar información según su configuración.</p>
+        <p data-i18n="privacyShare">Copiar o compartir un resultado incluye la fecha, la secuencia, el formato y la posición; la tarjeta PNG también contiene esos datos. Estas acciones son voluntarias y pueden entregar información al portapapeles, al archivo o al servicio que elijas. Copiar el enlace solo comparte la dirección de la aplicación, sin fecha, nombre ni parámetros.</p>
+        <p data-i18n="privacyNetwork">La aplicación descarga sus archivos de código desde el alojamiento y calcula los decimales localmente; no se envía la fecha introducida al buscar. El alojamiento y la red pueden registrar accesos, direcciones IP y direcciones solicitadas. No escribas datos personales en la URL: podrían llegar al servidor. La aplicación ignora sus parámetros. No se han incorporado herramientas de seguimiento de terceros.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><span data-i18n="footer">Una coincidencia matemática, no una predicción.</span><a href="./README.md" data-i18n="about">Datos y metodología</a><a href="./licencias.html" data-i18n="licenses">Licencias y código fuente</a></footer>
+</body>
+</html>
